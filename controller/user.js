@@ -2,14 +2,14 @@ const UserDetails = require("../models/userModal");
 
 
 const setProduct = async (req,res) => {
-    const {id,name,price,author,username,address,email} = req.body;
+    const {id,name,price,address,email} = req.body;
 
       const body = {
         id,
         name,
         price,
-        author: author?author:"",
-        username:username?username:"",
+        author:"null",
+        username:"null",
         address,
         email
       }
