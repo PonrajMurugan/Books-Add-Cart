@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 const { getAllProducts } = require("./controller/product");
 const Product = require("./models/productModal");
+const { setProduct } = require("./controller/user");
 require('dotenv').config()
 const port = process.env.PORT;
 const app = express();
@@ -14,13 +15,10 @@ app.use(cors())
 // app.use('/uploads', express.static('uploads'));
 dbConnect()
 app.get("/product",getAllProducts)
-const insert = async() => {
-    await Product.create({
-        name:"Simeon"
-    })
-}
+app.post("/apiuser",setProduct)
 
-insert()
+
+// insert()
 
 
 app.listen(port, () => {
